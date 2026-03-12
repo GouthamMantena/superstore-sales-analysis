@@ -1,4 +1,4 @@
-# superstore sales and profit analysis
+# SUPERSTORE SALES AND PROFIT ANALYSIS
 
 **Project Overview:**
 This project analyzes sales performance and profitability using the Superstore dataset. The goal is to understand revenue trends, identify loss-making product segments, and evaluate how discount strategies impact business profitability. SQL was used for data exploration and analysis, while Tableau was used to build an interactive dashboard for visualizing insights.
