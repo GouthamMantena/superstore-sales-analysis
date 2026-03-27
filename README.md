@@ -1,67 +1,72 @@
 # SUPERSTORE SALES AND PROFIT ANALYSIS
 
 **Project Overview:**
-This project analyzes sales performance and profitability using the Superstore dataset. The goal is to understand revenue trends, identify loss-making product segments, and evaluate how discount strategies impact business profitability. SQL was used for data exploration and analysis, while Tableau was used to build an interactive dashboard for visualizing insights.
+This project performs an end-to-end sales and profitability analysis using the Superstore dataset. The objective is to evaluate business performance, identify profit leakage, and understand the impact of discount strategies on overall profitability.
+
+Data was analyzed using SQL for querying and transformation, and visualized using Power BI through an interactive dashboard designed for business decision-making
 
 **Objectives:**
-- Analyze overall sales and profit performance
-- Identify profitable and loss-making product categories
-- Evaluate sub-category performance
+- Analyze overall sales, profit, and key business KPIs
+- Identify high-performing and loss-making product categories
+- Perform sub-category level profitability analysis
 - Understand the relationship between discount and profit
 - Build an interactive dashboard to present business insights
 
 **Dataset:**
-The dataset contains transactional sales data from a retail superstore including order details, product information, and financial metrics.
+The dataset contains transactional retail data including order details, product categories, sales, profit, and discount information.
 
-Total records analyzed: 9994
+- Total records: 9,994
+- Time period: 2014 – 2017
+- Total sales: $2.3M+
 
-**Technologies Used:**
-- SQL (MySQL)
-- Tableau
+**Tools & Technologies:**
+- SQL (MySQL) → Data extraction & analysis
+- Power BI → Data visualization & dashboard development
+- DAX → KPI calculations and dynamic measures
 
-**Exploratory Data Analysis:**
-SQL queries were used to explore and analyze the dataset.
+**Data Analysis Process:**
+1. Data Exploration (SQL)
+   - Analyzed sales and profit trends
+   - Evaluated category and sub-category performance
+   - Investigated discount distribution and its impact
+2. KPI Development (Power BI - DAX)
+   Created Key business metrics:
+   - Total Revenue
+   - Total Profit
+   - Profit Margin
+   - Total Orders
+   - Average Order Value
 
-Key analysis included:
-- Yearly sales and profit trends
-- Category level profitability
-- Sub-category loss analysis
-- Discount distribution and its impact on profit
-
-Visualizations were created to support the analysis.
+**Dashboard Preview**
 
 ![Dashboard](images/dashboard_preview.png)
 
-**Tableau Dashboard:**
-An interactive Tableau dashboard was built to analyze business performance and identify key insights.
+**Dashboard Features:**
 
-Dashboard components include:
-- Executive KPI overview
-- Revenue and profit trend (2014–2017)
-- Category profitability comparison
-- Furniture sub-category loss analysis
-- Discount vs Profit relationship
-
-The dashboard provides a clear overview of sales performance and highlights factors affecting profitability.
-
+- KPI Cards: Revenue, Profit, Margin, Orders, AOV
+- Trend Analysis: Sales & Profit over time
+- Sub-Category Analysis: Identification of loss-making segments
+- Category Analysis: Profitability by category
+- Category Analysis: Profitability by category
 ---
 
 **Key Insights:**
-- Total revenue reached **$2.3M** with a **12.47% profit margin**
-- Sales increased steadily between **2014 and 2017**
-- **Furniture category shows lower profitability compared to other categories**
-- **Tables and Bookcases generate consistent losses**
-- High discounts often result in negative profit
+- Generated **$2.3M+** revenue with an overall **~12.5% profit margin**
+- Sales increased consistently from **2014 to 2017**, but profit growth was not proportional
+- **Furniture category underperforms, contributing to margin inefficiencies**
+- **Tables and Bookcases are consistently loss-making sub-categories**
+- Higher discount levels show a strong correlation with negative profitability
 
 ---
 
 **Business Insights:**
-- High discount strategies significantly impact profit margins
-- Furniture sub-categories require pricing or cost optimization
-- Technology products contribute higher profitability
-- Monitoring discount strategies can improve overall profitability
-
+- Optimize discount strategies to prevent margin erosion
+- Re-evaluate pricing for loss-making sub-categories (Tables, Bookcases)
+- Focus on high-margin categories like Technology
+- Implement controlled discounting to improve profitability
 ---
+
+**Project Structure** 
 ```
 │
 ├── data
