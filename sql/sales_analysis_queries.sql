@@ -135,24 +135,6 @@ SELECT * FROM regional_performance
 
 # 3. BUSINESS ANALYSIS LAYER
 
--- CTE: Furniture High Discount Profit Loss Analysis
-WITH furniture_discount AS (
-    SELECT 
-        sub_category,
-        discount,
-        profit
-    FROM superstore
-    WHERE category = 'Furniture'
-      AND discount >= 0.2
-)
-SELECT 
-    sub_category,
-    COUNT(*) AS transactions,
-    ROUND(SUM(profit), 2) AS total_profit
-FROM furniture_discount
-GROUP BY sub_category
-ORDER BY total_profit;
-
 -- Identify Loss-Making Products
 
 SELECT *
