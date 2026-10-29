@@ -21,11 +21,15 @@ The workflow integrates SQL for data analysis and Power BI for building an inter
 
 ##  Dataset
 
+* Source: Tableau's **Sample - Superstore** dataset (US retail orders)
 * Total records: **9,994**
 * Time period: **2014 – 2017**
 * Total sales: **$2.3M+**
 
 The dataset includes order details, product categories, sales, profit, and discount information.
+
+* `data/raw/superstore_raw.csv`: original dataset, loaded into MySQL
+* `data/cleaned/superstore_cleaned.csv`: cleaned export used by the dashboard (all 9,994 rows)
 
 ---
 
@@ -41,9 +45,11 @@ The dataset includes order details, product categories, sales, profit, and disco
 
 ### 1. Data Processing (SQL)
 
-* Queried and analyzed transactional data
-* Aggregated key metrics such as revenue and profit
+* Loaded the raw CSV into MySQL and converted text dates to DATE
+* Ran data quality checks for duplicates and missing values
+* Built reusable SQL views for KPIs, monthly trends, and year-over-year growth (window function `LAG`)
 * Evaluated category and sub-category performance
+* Used a CTE to measure Furniture profit loss from high discounts
 
 ### 2. Data Modeling (Power BI)
 
@@ -69,11 +75,12 @@ Built an interactive dashboard including:
 
 ##  Key Insights
 
-* Generated **$2.3M+ revenue** with ~**12.5% profit margin**
-* Sales increased over time, but profit did not scale proportionally
-* **Furniture category underperforms** compared to others
-* **Tables and Bookcases are loss-making sub-categories**
-* Higher discount levels lead to **negative profitability**
+* Generated **$2.3M+ revenue** with a **12.47% profit margin**
+* Revenue grew **51%** from 2014 to 2017, and profit grew faster (**89%**), lifting margin from **10.2% to 12.7%**
+* **Furniture underperforms**: a **2.5% margin**, versus about **17%** for Technology and Office Supplies
+* **Tables (-$17.7K), Bookcases (-$3.5K), and Supplies (-$1.2K)** are loss-making sub-categories
+* Every discount level **above 20%** loses money: **1,393 transactions lost about $135K** in profit
+* High discounts (20%+) on Furniture alone cost **$48K** in profit
 
 ---
 
@@ -94,9 +101,22 @@ Developed a professional analytics dashboard that transforms raw data into actio
 ##  Project Structure
 
 ```
-dashboard/
-data/
-images/
-sql/
-README.md
+superstore-sales-analysis/
+├── data/
+│   ├── raw/superstore_raw.csv
+│   └── cleaned/superstore_cleaned.csv
+├── sql/sales_analysis_queries.sql
+├── dashboard/superstore_dashboard.pbix
+├── images/dashboard_preview.png
+└── README.md
 ```
+
+---
+
+##  How to Run
+
+1. Clone the repo: `git clone https://github.com/GouthamMantena/superstore-sales-analysis.git`
+2. Open `sql/sales_analysis_queries.sql` in MySQL Workbench (MySQL 8+).
+3. Enable local file loading for the connection (Advanced > Others: `OPT_LOCAL_INFILE=1`), and update the CSV path in the `LOAD DATA` step if needed.
+4. Run the script top to bottom. It creates the table, loads 9,994 rows, cleans dates, and builds all views.
+5. Open `dashboard/superstore_dashboard.pbix` in Power BI Desktop.
